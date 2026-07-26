@@ -18,7 +18,6 @@
             --gold: #d4af37;
             --light-gold: #f0d878;
             --white: #f5f5f5;
-            --gray: #999999;
         }
 
         body {
@@ -59,7 +58,6 @@
 
         .nav-links a {
             color: #ddd;
-            font-size: 0.9rem;
         }
 
         .nav-links a:hover {
@@ -138,12 +136,10 @@
         }
 
         .product-image {
-            height: 260px;
-            background: linear-gradient(135deg, #292929, #0d0d0d);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
         }
 
         .product-info {
@@ -267,51 +263,28 @@
 
     <main class="products" id="productGrid">
 
-        <div class="product-card" data-name="Luxury Watch" data-category="watches" data-price="49.99">
-            <div class="product-image">PRODUCT IMAGE</div>
+        <div class="product-card"
+             data-name="GRIND N GOLD Classic Watch"
+             data-category="watches"
+             data-price="29.99">
+
+            <img
+                src="watch1.jpeg"
+                alt="GRIND N GOLD Classic Watch"
+                class="product-image"
+            >
 
             <div class="product-info">
                 <div class="category">Watches</div>
-                <h3>Luxury Watch</h3>
-                <span class="price">$49.99</span>
-                <span class="old-price">$79.99</span>
-                <a href="#" class="view-button">VIEW PRODUCT</a>
-            </div>
-        </div>
 
-        <div class="product-card" data-name="Premium Chain" data-category="jewelry" data-price="29.99">
-            <div class="product-image">PRODUCT IMAGE</div>
+                <h3>GRIND N GOLD Classic Watch</h3>
 
-            <div class="product-info">
-                <div class="category">Jewelry</div>
-                <h3>Premium Chain</h3>
                 <span class="price">$29.99</span>
-                <span class="old-price">$44.99</span>
-                <a href="#" class="view-button">VIEW PRODUCT</a>
-            </div>
-        </div>
+                <span class="old-price">$49.99</span>
 
-        <div class="product-card" data-name="Streetwear Hoodie" data-category="clothing" data-price="39.99">
-            <div class="product-image">PRODUCT IMAGE</div>
-
-            <div class="product-info">
-                <div class="category">Clothing</div>
-                <h3>Streetwear Hoodie</h3>
-                <span class="price">$39.99</span>
-                <span class="old-price">$59.99</span>
-                <a href="#" class="view-button">VIEW PRODUCT</a>
-            </div>
-        </div>
-
-        <div class="product-card" data-name="Premium Sunglasses" data-category="accessories" data-price="24.99">
-            <div class="product-image">PRODUCT IMAGE</div>
-
-            <div class="product-info">
-                <div class="category">Accessories</div>
-                <h3>Premium Sunglasses</h3>
-                <span class="price">$24.99</span>
-                <span class="old-price">$39.99</span>
-                <a href="#" class="view-button">VIEW PRODUCT</a>
+                <a href="#" class="view-button">
+                    VIEW PRODUCT
+                </a>
             </div>
         </div>
 
@@ -319,61 +292,8 @@
 
     <footer>
         <h2>GRIND N GOLD</h2>
+
         <p>Keep grinding. Keep moving. Keep building.</p>
-        <p style="margin-top: 20px;">© 2026 GRIND N GOLD. All rights reserved.</p>
-    </footer>
 
-    <script>
-        const search = document.getElementById("search");
-        const category = document.getElementById("category");
-        const sort = document.getElementById("sort");
-        const grid = document.getElementById("productGrid");
-
-        function updateProducts() {
-            const searchTerm = search.value.toLowerCase();
-            const selectedCategory = category.value;
-            const cards = Array.from(grid.children);
-
-            cards.forEach(card => {
-                const name = card.dataset.name.toLowerCase();
-                const cardCategory = card.dataset.category;
-
-                const matchesSearch = name.includes(searchTerm);
-                const matchesCategory =
-                    selectedCategory === "all" ||
-                    cardCategory === selectedCategory;
-
-                card.style.display =
-                    matchesSearch && matchesCategory ? "block" : "none";
-            });
-
-            const visibleCards = cards.filter(card => card.style.display !== "none");
-
-            if (sort.value === "low") {
-                visibleCards.sort((a, b) =>
-                    Number(a.dataset.price) - Number(b.dataset.price)
-                );
-            }
-
-            if (sort.value === "high") {
-                visibleCards.sort((a, b) =>
-                    Number(b.dataset.price) - Number(a.dataset.price)
-                );
-            }
-
-            if (sort.value === "name") {
-                visibleCards.sort((a, b) =>
-                    a.dataset.name.localeCompare(b.dataset.name)
-                );
-            }
-
-            visibleCards.forEach(card => grid.appendChild(card));
-        }
-
-        search.addEventListener("input", updateProducts);
-        category.addEventListener("change", updateProducts);
-        sort.addEventListener("change", updateProducts);
-    </script>
-
-</body>
-</html>
+        <p style="margin-top: 20px;">
+            © 2026 GRIND N GOLD. All rights reserved.
