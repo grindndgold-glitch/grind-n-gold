@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | GRIND N GOLD</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --dark: #111111;
+            --gold: #d4af37;
+            --light-gold: #f0d878;
+            --white: #f5f5f5;
+            --gray: #999999;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 7%;
+            background: #080808;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cart {
+            border: 1px solid var(--gold);
+            padding: 10px 16px;
+            border-radius: 5px;
+            color: var(--gold);
+        }
+
+        .shop-header {
+            text-align: center;
+            padding: 70px 20px 45px;
+            background: linear-gradient(135deg, #17120a, #0a0a0a);
+        }
+
+        .shop-header h1 {
+            color: var(--gold);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .shop-header p {
+            color: #aaa;
+        }
+
+        .controls {
+            padding: 30px 7%;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #222;
+        }
+
+        input,
+        select {
+            background: #151515;
+            color: white;
+            border: 1px solid #333;
+            padding: 13px 15px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+
+        input {
+            width: min(100%, 350px);
+        }
+
+        select {
+            min-width: 180px;
+        }
+
+        .products {
+            padding: 55px 7%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--dark);
+            border: 1px solid #252525;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+
+        .product-image {
+            height: 260px;
+            background: linear-gradient(135deg, #292929, #0d0d0d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .category {
+            color: #888;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #777;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+
+        .view-button {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            padding: 11px;
+            background: var(--gold);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .view-button:hover {
+            background: var(--light-gold);
+        }
+
+        footer {
+            padding: 45px 7%;
+            background: #060606;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #888;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .products {
+                padding: 40px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">GRIND N GOLD</a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#featured">Featured</a></li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+
+        <a href="cart.html" class="cart">Cart (0)</a>
+    </nav>
+
+    <header class="shop-header">
+        <h1>SHOP</h1>
+        <p>Discover products built for the grind.</p>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search products...">
+
+        <select id="category">
+            <option value="all">All Categories</option>
+            <option value="watches">Watches</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="clothing">Clothing</option>
+            <option value="accessories">Accessories</option>
+        </select>
+
+        <select id="sort">
+            <option value="featured">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name: A-Z</option>
+        </select>
+    </div>
+
+    <main class="products" id="productGrid">
+
+        <div class="product-card" data-name="Luxury Watch" data-category="watches" data-price="49.99">
+            <div class="product-image">PRODUCT IMAGE</div>
+
+            <div class="product-info">
+                <div class="category">Watches</div>
+                <h3>Luxury Watch</h3>
+                <span class="price">$49.99</span>
+                <span class="old-price">$79.99</span>
+                <a href="#" class="view-button">VIEW PRODUCT</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Premium Chain" data-category="jewelry" data-price="29.99">
+            <div class="product-image">PRODUCT IMAGE</div>
+
+            <div class="product-info">
+                <div class="category">Jewelry</div>
+                <h3>Premium Chain</h3>
+                <span class="price">$29.99</span>
+                <span class="old-price">$44.99</span>
+                <a href="#" class="view-button">VIEW PRODUCT</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Streetwear Hoodie" data-category="clothing" data-price="39.99">
+            <div class="product-image">PRODUCT IMAGE</div>
+
+            <div class="product-info">
+                <div class="category">Clothing</div>
+                <h3>Streetwear Hoodie</h3>
+                <span class="price">$39.99</span>
+                <span class="old-price">$59.99</span>
+                <a href="#" class="view-button">VIEW PRODUCT</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Premium Sunglasses" data-category="accessories" data-price="24.99">
+            <div class="product-image">PRODUCT IMAGE</div>
+
+            <div class="product-info">
+                <div class="category">Accessories</div>
+                <h3>Premium Sunglasses</h3>
+                <span class="price">$24.99</span>
+                <span class="old-price">$39.99</span>
+                <a href="#" class="view-button">VIEW PRODUCT</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2>GRIND N GOLD</h2>
+        <p>Keep grinding. Keep moving. Keep building.</p>
+        <p style="margin-top: 20px;">© 2026 GRIND N GOLD. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const search = document.getElementById("search");
+        const category = document.getElementById("category");
+        const sort = document.getElementById("sort");
+        const grid = document.getElementById("productGrid");
+
+        function updateProducts() {
+            const searchTerm = search.value.toLowerCase();
+            const selectedCategory = category.value;
+            const cards = Array.from(grid.children);
+
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const cardCategory = card.dataset.category;
+
+                const matchesSearch = name.includes(searchTerm);
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    cardCategory === selectedCategory;
+
+                card.style.display =
+                    matchesSearch && matchesCategory ? "block" : "none";
+            });
+
+            const visibleCards = cards.filter(card => card.style.display !== "none");
+
+            if (sort.value === "low") {
+                visibleCards.sort((a, b) =>
+                    Number(a.dataset.price) - Number(b.dataset.price)
+                );
+            }
+
+            if (sort.value === "high") {
+                visibleCards.sort((a, b) =>
+                    Number(b.dataset.price) - Number(a.dataset.price)
+                );
+            }
+
+            if (sort.value === "name") {
+                visibleCards.sort((a, b) =>
+                    a.dataset.name.localeCompare(b.dataset.name)
+                );
+            }
+
+            visibleCards.forEach(card => grid.appendChild(card));
+        }
+
+        search.addEventListener("input", updateProducts);
+        category.addEventListener("change", updateProducts);
+        sort.addEventListener("change", updateProducts);
+    </script>
+
+</body>
+</html>
