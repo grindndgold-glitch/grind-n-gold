@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRIND N GOLD | Elevate Your Everyday</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --dark: #111111;
+            --gold: #d4af37;
+            --light-gold: #f0d878;
+            --white: #f5f5f5;
+            --gray: #999999;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 7%;
+            background: #080808;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cart {
+            border: 1px solid var(--gold);
+            padding: 10px 16px;
+            border-radius: 5px;
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+                radial-gradient(circle at center, #3b300b 0%, #0a0a0a 60%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 9vw, 7rem);
+            letter-spacing: 6px;
+            line-height: 1;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #d1d1d1;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 34px;
+            background: var(--gold);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--light-gold);
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 45px;
+            color: var(--gold);
+        }
+
+        /* PRODUCT CARDS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--dark);
+            border: 1px solid #252525;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+
+        .product-image {
+            height: 240px;
+            background: linear-gradient(135deg, #242424, #0d0d0d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* BRAND MESSAGE */
+        .brand-message {
+            text-align: center;
+            background: #101010;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .brand-message p {
+            max-width: 700px;
+            margin: auto;
+            color: #c4c4c4;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* TRUST */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .trust-card {
+            padding: 25px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+        }
+
+        .trust-card h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .trust-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 45px 7%;
+            background: #060606;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                letter-spacing: 3px;
+            }
+
+            section {
+                padding: 55px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">GRIND N GOLD</a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <a href="cart.html" class="cart">Cart (0)</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>GRIND N GOLD</h1>
+
+                <p>
+                    Built for those who keep moving. Discover products that match your ambition,
+                    your style, and the mindset that refuses to settle.
+                </p>
+
+                <a href="shop.html" class="hero-button">
+                    SHOP NOW
+                </a>
+            </div>
+        </section>
+
+        <section class="brand-message" id="about">
+            <h2 class="section-title">THE GRIND NEVER STOPS</h2>
+
+            <p>
+                GRIND N GOLD is built around ambition, individuality, and the pursuit of something greater.
+                Whether you're upgrading your style or discovering something new, every product is selected
+                with one goal in mind: helping you stand out while you keep moving forward.
+            </p>
+        </section>
+
+        <section id="featured">
+            <h2 class="section-title">FEATURED PRODUCTS</h2>
+
+            <div class="products">
+
+                <div class="product-card">
+                    <div class="product-image">
+                        PRODUCT IMAGE
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Featured Product</h3>
+                        <p class="price">$29.99</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        PRODUCT IMAGE
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Featured Product</h3>
+                        <p class="price">$39.99</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        PRODUCT IMAGE
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Featured Product</h3>
+                        <p class="price">$49.99</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">SHOP WITH CONFIDENCE</h2>
+
+            <div class="trust-grid">
+
+                <div class="trust-card">
+                    <h3>QUALITY PICKS</h3>
+                    <p>Products selected with style, usefulness, and value in mind.</p>
+                </div>
+
+                <div class="trust-card">
+                    <h3>SECURE CHECKOUT</h3>
+                    <p>Secure payment options will be available at checkout.</p>
+                </div>
+
+                <div class="trust-card">
+                    <h3>SUPPORT</h3>
+                    <p>Have a question? Contact us at grindndgold@gmail.com.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h2>GRIND N GOLD</h2>
+
+        <p>Keep grinding. Keep moving. Keep building.</p>
+
+        <div class="footer-links">
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </div>
+
+        <p style="margin-top: 25px;">
+            © 2026 GRIND N GOLD. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
