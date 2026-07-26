@@ -144,6 +144,14 @@
             align-items: center;
             justify-content: center;
             color: #777;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .product-info {
@@ -267,14 +275,16 @@
 
     <main class="products" id="productGrid">
 
-        <div class="product-card" data-name="Luxury Watch" data-category="watches" data-price="49.99">
-            <div class="product-image">PRODUCT IMAGE</div>
+        <div class="product-card" data-name="GRIND N GOLD Classic Watch" data-category="watches" data-price="29.99">
+            <div class="product-image">
+                <img src="watch1.jpg" alt="GRIND N GOLD Classic Watch">
+            </div>
 
             <div class="product-info">
                 <div class="category">Watches</div>
-                <h3>Luxury Watch</h3>
-                <span class="price">$49.99</span>
-                <span class="old-price">$79.99</span>
+                <h3>GRIND N GOLD Classic Watch</h3>
+                <span class="price">$29.99</span>
+                <span class="old-price">$49.99</span>
                 <a href="#" class="view-button">VIEW PRODUCT</a>
             </div>
         </div>
